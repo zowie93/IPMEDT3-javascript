@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zowie93/plain-gulp-browsersync-package#readme",
   "dependencies": {
+    "aframe": "^0.3.2",
     "browser-sync": "^2.16.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",

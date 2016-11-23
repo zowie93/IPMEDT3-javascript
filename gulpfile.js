@@ -6,7 +6,7 @@ var basePaths = {
 
 // browser-sync watched files
 var browserSyncWatchFiles = [
-    'index.html',
+    basePaths.basedir + '*.html',
     basePaths.basedir + 'assets/js/*.js',
     basePaths.basedir + 'assets/css/*.css'
 ];
