@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>plain-gulp-browsersync-package</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <link href="assets/css/style.min.css" rel="stylesheet" type="text/css">
     <script src="assets/js/aframe-v0.3.2.min.js"></script>
     <script src="assets/js/main.js"></script>
 </head>
 <body>
-<a-scene debug="true">
+<div id="overlay" class="overlay">
+    <h1 class="overlay-title">Alle kippen zijn verslagen!</h1>
+</div>
+<a-scene>
     <a-assets>
         <img id="floor" src="assets/img/textures/sand_03_2048x2048.png">
         <img id="brickTexture" src="assets/img/textures/RedBrick_256.png">
@@ -24,7 +28,10 @@
         <img id="shutter-texture" src="assets/img/textures/shutter-texture.jpg">
     </a-assets>
 
-    <!--<a-entity id="camera" camera="far:10000;fov:50;near:0.05;active:true" position="0 0.5 0"></a-entity>-->
+    <a-camera camera="" position="" rotation="" look-controls="" wasd-controls="" scale="" visible="">
+        <a-cursor color="white" material="" raycaster="" cursor="" geometry="" position="" rotation="" scale="" visible=""></a-cursor>
+    </a-camera>
+
     <a-entity id="floor" position="0 0 0" rotation="0 0 0" geometry="height:0.5;depth:40;width:40"
               material="src: #floor; repeat: 40 40"></a-entity>
 
@@ -59,13 +66,71 @@
 
     <a-obj-model id="3DPerson" src="assets/img/models/model_soldier/m1.obj" mtl="assets/img/models/model_soldier/m1.mtl" scale="0.01 0.01 0.01" position="2.88 0.27 2.57" material="roughness:0.2" obj-model="obj:url(assets/img/models/model_soldier/m1.obj);mtl:url(assets/img/models/model_soldier/m1.mtl)" rotation="0 -134.07212406061262 0"></a-obj-model>
 
-    <a-obj-model id="Gun" src="assets/img/models/model_gun/scr_evo_r.obj" mtl="assets/img/models/model_gun/scr_evo_r.mtl" scale="0.09 0.09 0.09" position="-1.93 1.13 -3.75" material="" obj-model="obj:url(assets/img/models/model_gun/scr_evo_r.obj);mtl:url(assets/img/models/model_gun/scr_evo_r.mtl)" rotation="-89.38141604040842 140.3746598070517 179.9087476710785"></a-obj-model>
-    <a-obj-model id="Gun2" src="assets/img/models/model_gun/scr_evo_r.obj" mtl="assets/img/models/model_gun/scr_evo_r.mtl" scale="0.09 0.09 0.09" position="1.83 0.28 -2.76" material="" obj-model="obj:url(assets/img/models/model_gun/scr_evo_r.obj);mtl:url(assets/img/models/model_gun/scr_evo_r.mtl)" rotation="-89.38141604040842 -123.75888374825783 179.9087476710785"></a-obj-model>
+    <a-entity id="chickens">
+        <a-entity id="chicken-row" position="2 0 1">
+            <a-obj-model cursor-listener visible="true" id="chicken" src="assets/img/models/model_chicken/Chicken.obj" mtl="assets/img/models/model_chicken/Chicken.mtl" scale="0.02 0.02 0.02" position="-0.05 0.27 -1.74" material="roughness:0.2" obj-model="obj:url(assets/img/models/model_chicken/Chicken.obj);mtl:url(assets/img/models/model_chicken/Chicken.mtl)" rotation="0 -69.32789321082961 0"></a-obj-model>
+            <a-animation attribute="position"
+                         dur="10000"
+                         fill="forwards"
+                         from="0 0 0"
+                         to="3 0 1"
+                         repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <a-entity id="chicken-row" position="1 0 0">
+            <a-obj-model cursor-listener visible="true" id="chicken2" src="assets/img/models/model_chicken/Chicken.obj" mtl="assets/img/models/model_chicken/Chicken.mtl" scale="0.02 0.02 0.02" position="1 0.27 0" material="roughness:0.2" obj-model="obj:url(assets/img/models/model_chicken/Chicken.obj);mtl:url(assets/img/models/model_chicken/Chicken.mtl)" rotation="0 -69.33 0"></a-obj-model>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <a-entity id="chicken-row" position="-1 0 -2">
+            <a-obj-model cursor-listener visible="true" id="chicken3" src="assets/img/models/model_chicken/Chicken.obj" mtl="assets/img/models/model_chicken/Chicken.mtl" scale="0.02 0.02 0.02" position="1 0.27 0" material="roughness:0.2" obj-model="obj:url(assets/img/models/model_chicken/Chicken.obj);mtl:url(assets/img/models/model_chicken/Chicken.mtl)" rotation="0 -69.33 0"></a-obj-model>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <a-entity id="chicken-row" position="-2 0 3">
+            <a-obj-model cursor-listener visible="true" id="chicken4" src="assets/img/models/model_chicken/Chicken.obj" mtl="assets/img/models/model_chicken/Chicken.mtl" scale="0.02 0.02 0.02" position="1 0.27 0" material="roughness:0.2" obj-model="obj:url(assets/img/models/model_chicken/Chicken.obj);mtl:url(assets/img/models/model_chicken/Chicken.mtl)" rotation="0 -69.33 0"></a-obj-model>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 360 0"
+                         repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <a-entity id="chicken-row" position="3 0 -2">
+            <a-obj-model cursor-listener visible="true" id="chicken4" src="assets/img/models/model_chicken/Chicken.obj" mtl="assets/img/models/model_chicken/Chicken.mtl" scale="0.02 0.02 0.02" position="1 0.27 0" material="roughness:0.2" obj-model="obj:url(assets/img/models/model_chicken/Chicken.obj);mtl:url(assets/img/models/model_chicken/Chicken.mtl)" rotation="0 -69.33 0"></a-obj-model>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 40 0"
+                         repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <a-entity id="chicken-row" position="-4 0 -2">
+            <a-obj-model cursor-listener visible="true" id="chicken5" src="assets/img/models/model_chicken/Chicken.obj" mtl="assets/img/models/model_chicken/Chicken.mtl" scale="0.02 0.02 0.02" position="1 0.27 0" material="roughness:0.2" obj-model="obj:url(assets/img/models/model_chicken/Chicken.obj);mtl:url(assets/img/models/model_chicken/Chicken.mtl)" rotation="0 -69.33 0"></a-obj-model>
+            <a-animation attribute="rotation"
+                         dur="10000"
+                         fill="forwards"
+                         to="0 40 0"
+                         repeat="indefinite"></a-animation>
+        </a-entity>
+
+
+    </a-entity>
+
+    <a-obj-model id="gun" src="assets/img/models/model_gun/scr_evo_r.obj" mtl="assets/img/models/model_gun/scr_evo_r.mtl" scale="0.09 0.09 0.09" position="-1.93 1.13 -3.75" material="" obj-model="obj:url(assets/img/models/model_gun/scr_evo_r.obj);mtl:url(assets/img/models/model_gun/scr_evo_r.mtl)" rotation="-89.38141604040842 140.3746598070517 179.9087476710785"></a-obj-model>
+    <a-obj-model id="gun2" src="assets/img/models/model_gun/scr_evo_r.obj" mtl="assets/img/models/model_gun/scr_evo_r.mtl" scale="0.09 0.09 0.09" position="1.83 0.28 -2.76" material="" obj-model="obj:url(assets/img/models/model_gun/scr_evo_r.obj);mtl:url(assets/img/models/model_gun/scr_evo_r.mtl)" rotation="-89.38141604040842 -123.75888374825783 179.9087476710785"></a-obj-model>
 
     <a-entity id="sound" geometry="primitive:plane" material="color:#73d8ed" position="0 6 0" sound="src:url(assets/sound/inferno.mp3);autoplay:true" scale="0.01 0.01 0.01"></a-entity>
 
     <a-sky id="sky" color="#73d8ed"></a-sky>
 </a-scene>
-<script src="assets/js/aframe-inspector.min.js"></script>
 </body>
 </html>
